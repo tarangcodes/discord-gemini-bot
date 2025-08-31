@@ -1,0 +1,14 @@
+# Ignore virtual enviorments
+.venv/
+# Ignore environment files
+.env
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore PyCharm files
+.idea/
+*.iml
+modules.xml
+workspace.xml
