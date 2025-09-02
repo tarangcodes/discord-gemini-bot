@@ -5,10 +5,14 @@ from dotenv import load_dotenv #Loading env variables from .env file.
 
 load_dotenv() #take env variables from .env.file.
 
+<<<<<<< HEAD
 GEMINI_API_KEY = os.getenv('gemini_api_key') # Access the Gemini API key from environment variables.
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_TOKEN') # Access the Discord Bot Token from environment variables.
+=======
+gemini_api_key = os.getenv('GEMINI_API_KEY') # Access the Gemini API key from environment variables.
+>>>>>>> 86e57de2379f827d2abb9f67df8cbc4c5211f13a
 genai.configure(api_key=gemini_api_key) # Configure the Gemini API with key.
-
+DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 # Asynchronous function to get response from Gemini API
 async def get_gemini_response(prompt):
     try:
