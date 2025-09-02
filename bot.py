@@ -7,9 +7,9 @@ from dotenv import load_dotenv #Loading enviroment variables from .env file.
 
 load_dotenv() #take enviornment variables from .env.file.
 
-gemini_api_key = os.getenv('gemini_api_key') # Access the Gemini API key from environment variables.
+gemini_api_key = os.getenv('GEMINI_API_KEY') # Access the Gemini API key from environment variables.
 genai.configure(api_key=gemini_api_key) # Configure the Gemini API with key.
-
+DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 # Asynchronous function to get response from Gemini API
 async def get_gemini_response(prompt):
     try:
