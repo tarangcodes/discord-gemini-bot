@@ -1,15 +1,17 @@
 import os # To access environment variables.
 import discord # Important to interact with Discord API.
-import requests # We don't need this as we are using google.generativeai.
-import json # We don't need this as we are using google.generativeai.
 import google.generativeai as genai # To interact with Gemini API.
 from dotenv import load_dotenv #Loading enviroment variables from .env file.
 
 load_dotenv() #take enviornment variables from .env.file.
 
-gemini_api_key = os.getenv('GEMINI_API_KEY') # Access the Gemini API key from environment variables.
-genai.configure(api_key=gemini_api_key) # Configure the Gemini API with key.
-DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY') # Access the Gemini API key from environment variables.
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY) # Configure the Gemini API with key.
+else:
+    print("Error: GEMINI_API_KEY not found")
+
 # Asynchronous function to get response from Gemini API
 async def get_gemini_response(prompt):
     try:
@@ -53,5 +55,7 @@ intents.message_content = True
 
 # Update the call here by passing the 'intents' keyword argument.
 client = MyClient(intents=intents)
-discord_token = os.getenv('DISCORD_TOKEN')
-client.run(discord_token)
+if DISCORD_TOKEN:
+    client.run(DISCORD_TOKEN)
+else:
+    print("Error: DISCORD_TOKEN not found")
